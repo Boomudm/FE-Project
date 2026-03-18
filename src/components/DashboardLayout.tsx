@@ -61,9 +61,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
         <div className="p-4 border-t border-border-light dark:border-border-dark">
           <div className="flex items-center gap-3 px-3 py-2">
-            <img src="https://picsum.photos/seed/user/40/40" alt="User" className="w-10 h-10 rounded-full" referrerPolicy="no-referrer" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPs4iZAW-L2ig0iTXMC8fo-r0t6FiEcdU23A&s" alt="User" className="w-10 h-10 rounded-full" referrerPolicy="no-referrer" />
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate">{isAdmin ? 'Admin User' : 'Alex Johnson'}</p>
+              <p className="text-sm font-medium truncate">{isAdmin ? 'Admin User' : 'Jame Dawson'}</p>
               <p className="text-xs text-text-muted-light dark:text-text-muted-dark truncate">{isAdmin ? 'System Admin' : 'Premium Member'}</p>
             </div>
           </div>

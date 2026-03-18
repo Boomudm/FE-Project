@@ -13,14 +13,26 @@ export default function Login() {
     e.preventDefault();
     
     const formData = new FormData(e.currentTarget);
-    const email = formData.get('email');
-    const password = formData.get('password');
+    const email = formData.get('email')?.toString() || '';
+    const password = formData.get('password')?.toString() || '';
 
-    // Check for admin credentials
-    if (email === 'Admin@gmail.com' && password === 'admin123') {
+    // เช็ค admin (แปลง email เป็นตัวเล็กก่อน)
+    if (email.toLowerCase() === 'admin@gmail.com' && password === 'admin123') {
+      
+      // ✅ เพิ่มบรรทัดนี้: บันทึกว่า Login เป็น admin ลง localStorage
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('userRole', 'admin');
+      }
+      
       navigate.push('/admin');
-    } else {
-      // In a real app, authenticate here
+
+    } else if (email && password) { 
+      
+      // ✅ เพิ่มบรรทัดนี้: บันทึกว่า Login เป็น user ธรรมดา
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('userRole', 'user');
+      }
+      
       navigate.push('/dashboard');
     }
   };

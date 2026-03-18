@@ -4,7 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { User, Mail, Lock, ArrowRight } from 'lucide-react';
+// เพิ่ม import Phone เข้ามาสำหรับไอคอนเบอร์โทรศัพท์
+import { User, Mail, Lock, ArrowRight, Phone } from 'lucide-react';
 
 export default function SignUp() {
   const navigate = useRouter();
@@ -46,6 +47,8 @@ export default function SignUp() {
           
           <form className="mt-8 space-y-6" onSubmit={handleSignUp}>
             <div className="space-y-4">
+              
+              {/* --- Full Name --- */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">Full Name</label>
                 <div className="relative">
@@ -63,6 +66,25 @@ export default function SignUp() {
                 </div>
               </div>
 
+              {/* --- Telephone (เพิ่มเข้ามาใหม่ หน้าตาเหมือนอันอื่น) --- */}
+              <div>
+                <label htmlFor="telephone" className="block text-sm font-medium mb-1">Telephone</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Phone className="h-5 w-5 text-text-muted-light dark:text-text-muted-dark" />
+                  </div>
+                  <input
+                    id="telephone"
+                    name="telephone"
+                    type="tel"
+                    required
+                    className="appearance-none relative block w-full px-3 py-3 pl-10 border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition-colors text-text-light dark:text-text-dark"
+                    placeholder="081-234-5678"
+                  />
+                </div>
+              </div>
+
+              {/* --- Email --- */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-1">Email address</label>
                 <div className="relative">
@@ -81,6 +103,7 @@ export default function SignUp() {
                 </div>
               </div>
               
+              {/* --- Password --- */}
               <div>
                 <label htmlFor="password" className="block text-sm font-medium mb-1">Password</label>
                 <div className="relative">
